@@ -58,7 +58,9 @@ struct Pos2d {
         return *this;
     }
     bool operator<(Pos2d const& m)  { return ((x-m.x)+(y-m.y))<0; }
+    bool operator<=(Pos2d const& m) { return ((x-m.x)+(y-m.y))<=0;}
     bool operator>(Pos2d const& m)  { return ((x-m.x)+(y-m.y))>0; }
+    bool operator>=(Pos2d const& m) { return ((x-m.x)+(y-m.y))>=0;}
     int equalCompare_round_prec = 6;
     bool operator==(Pos2d const& m) {
         return (
