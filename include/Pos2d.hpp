@@ -121,29 +121,29 @@ struct Pos2d {
         return *this;
     }
     
-    Pos2d operator+(Pos2d const& m) {
+    Pos2d operator+(Pos2d const& m) const {
         return Pos2d(x+m.x, y+m.y);
     }
-    Pos2d operator-(Pos2d const& m) {
+    Pos2d operator-(Pos2d const& m) const {
         return Pos2d(x-m.x, y-m.y);
     }
-    Pos2d operator*(Pos2d const& m) {
+    Pos2d operator*(Pos2d const& m) const {
         return Pos2d(x*m.x, y*m.y);
     }
-    Pos2d operator/(Pos2d const& m) {
+    Pos2d operator/(Pos2d const& m) const {
         return Pos2d(x/m.x, y/m.y);
     }
     
-    Pos2d operator+(_varType var) {
+    Pos2d operator+(_varType var) const {
         return Pos2d(x+var, y+var);
     }
-    Pos2d operator-(_varType var) {
+    Pos2d operator-(_varType var) const {
         return Pos2d(x-var, y-var);
     }
-    Pos2d operator*(_varType var) {
+    Pos2d operator*(_varType var) const {
         return Pos2d(x*var, y*var);
     }
-    Pos2d operator/(_varType var) {
+    Pos2d operator/(_varType var) const {
         return Pos2d(x/var, y/var);
     }
     
@@ -186,7 +186,7 @@ struct Pos2d {
     }
 
     template<typename _castType>
-    Pos2d<_castType> cast() {
+    Pos2d<_castType> cast() const {
         return Pos2d<_castType>(_castType(x), _castType(y));
     }
     template<typename _castType, typename _lambda>
@@ -194,7 +194,7 @@ struct Pos2d {
         return Pos2d<_castType>(modificationFunc(x), modificationFunc(y));
     }
 
-    Pos2d getAbs() {
+    Pos2d getAbs() const {
         return Pos2d(
             (x>0? x : x*(-1)),
             (y>0? y : y*(-1))
@@ -203,11 +203,11 @@ struct Pos2d {
     _varType getHypotenuse() {
         return sqrt(pow(x, 2)+pow(y, 2));
     }
-    _varType getHypotenuse() const {
+    _varType getHypotenuse() {
         return sqrt(pow(x, 2)+pow(y, 2));
     }
 
-    _varType getDelta(bool reverse=false) {
+    _varType getDelta(bool reverse=false) const {
         if(reverse) return x-y;
         return y-x;
     }
